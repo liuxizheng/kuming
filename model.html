@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+				list-style: none;
+			}
+			ul{
+				width: 500px;
+				height:500px;
+				border: 1px solid red;
+				position: relative;
+				margin: 300px auto;
+				transform-style: preserve-3d;
+				/*perspective: 400px;*/
+				transform:perspective(800px) rotateY(0deg) rotateX(0deg)rotateZ(0deg);
+				-webkit-animation: mover 10s linear infinite;
+
+			}
+			.two{
+				width: 500px;
+				height:500px;
+				border-radius: 50%;
+				position: absolute;
+				/*transition: all 2s linear ;*/
+				/*-webkit-animation: moves 1s linear infinite;*/
+				
+			}
+			.one{
+				width: 200px;
+				height:300px;
+				/*opacity: 0.5;*/
+				/*transition: all 2s linear;*/
+				font-size: 120px;
+				text-align: center;
+				line-height:300px ;
+				position: absolute;
+				top: 150px;
+				left:150px ;
+			}
+			.one1{
+				background:red;
+				transform: translateZ(150px) scale(0.5);
+			}
+			.one2{
+				background:yellowgreen;
+				transform:rotateX(90deg) translateZ(150px) scale(0.5);
+			}
+			.one3{
+				background:aqua;
+				transform:rotateX(-90deg) translateZ(150px ) scale(0.5);
+			}
+			.one4{
+				width: 300px;
+				height:300px;
+				/*width:200px;*/
+				background:darkslategray;
+				transform-origin:left center;
+				transform:rotateY(-90deg) translateX(-150px) scale(0.5);
+			}
+			.one5{
+				width: 300px;
+				height:300px;
+				background:chartreuse;
+				transform-origin:left center;
+				transform:rotateY(90deg) translateX(-150px) translateZ(200px) scale(0.5);
+			}
+			.one6{
+				background:firebrick;
+				transform:rotateY(180deg) translateZ(150px) scale(0.5);
+				
+			}
+			.two1{
+				border: 10px dashed black;
+				/*transform-origin:100px 100px;*/
+				transform:  rotateY(0deg);
+				transition: all 200ms linear; 
+			}
+			.two2{
+				border: 10px dashed chocolate;
+				transform:  rotateY(90deg);
+				transition: all 200ms linear; 
+			}
+			.two3{
+				border: 10px dashed fuchsia;
+				transform: rotateY(45deg);
+				transition: all 200ms linear; 
+			}
+			.two4{
+				border: 10px dashed darkcyan;
+				transform: rotateY(135deg);
+				transition: all 200ms linear; 
+			}
+			.two5{
+				border: 10px dashed darkturquoise;
+				transform: rotateY(225deg);
+				transition: all 200ms linear; 
+			}
+			@-webkit-keyframes mover{
+				to{transform:perspective(800px) rotateX(360deg) rotateY(360deg) rotateZ(360deg) }
+			}
+			/*@-webkit-keyframes moves{
+				to{transform:perspective(800px) translateX(-100px) translateY(-50px) rotateY(270deg)}
+			}*/
+		</style>
+	</head>
+	<body>
+		<ul>
+			<li class="one one1">1</li>
+			<li class="one one2">2</li>
+			<li class="one one3">3</li>
+			<li class="one one4">4</li>
+			<li class="one one5">5</li>
+			<li class="one one6">6</li>
+			<li class="two two1"></li>
+			<li class="two two2"></li>
+			<li class="two two3"></li>
+			<li class="two two4"></li>
+			<li class="two two5"></li>
+		</ul>
+		<script type="text/javascript">
+			var circle=document.getElementsByClassName("two")[0];
+			var circles=document.getElementsByClassName("two")[2];
+			var circless=document.getElementsByClassName("two")[1];
+			var circlesss=document.getElementsByClassName("two")[3];
+			var circlessss=document.getElementsByClassName("two")[4];
+			var count=0;
+			setInterval(function(){
+				count+=10;
+				circle.style.transform="rotateZ("+count+"deg) ";
+				circles.style.transform=" rotateY(45deg) rotateZ("+count+"deg)";
+				circless.style.transform=" rotateY(90deg) rotateZ("+count+"deg)";
+				circlesss.style.transform=" rotateY(135deg) rotateZ("+count+"deg)";
+				circlessss.style.transform=" rotateY(225deg) rotateZ("+count+"deg)";
+			},200)
+		</script>
+	</body>
+</html>
